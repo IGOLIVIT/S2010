@@ -69,11 +69,6 @@ struct SettingsView: View {
                                 .opacity(animateContent ? 1.0 : 0.0)
                                 .animation(DreamAnimations.gentle.delay(0.6), value: animateContent)
                             
-                            // App Info
-                            AppInfoCard()
-                                .offset(y: animateContent ? 0 : 30)
-                                .opacity(animateContent ? 1.0 : 0.0)
-                                .animation(DreamAnimations.gentle.delay(0.7), value: animateContent)
                             
                             // Reset Progress
                             SettingsCard(
@@ -87,7 +82,7 @@ struct SettingsView: View {
                             )
                             .offset(y: animateContent ? 0 : 30)
                             .opacity(animateContent ? 1.0 : 0.0)
-                            .animation(DreamAnimations.gentle.delay(0.8), value: animateContent)
+                            .animation(DreamAnimations.gentle.delay(0.7), value: animateContent)
                         }
                         .padding(.horizontal, 20)
                         
@@ -96,7 +91,7 @@ struct SettingsView: View {
                             DreamStarsSummaryCard(sleepManager: sleepManager)
                                 .offset(y: animateContent ? 0 : 30)
                                 .opacity(animateContent ? 1.0 : 0.0)
-                                .animation(DreamAnimations.gentle.delay(0.9), value: animateContent)
+                                .animation(DreamAnimations.gentle.delay(0.8), value: animateContent)
                                 .padding(.horizontal, 20)
                         }
                         
@@ -242,46 +237,6 @@ struct SleepGoalSettingsCard: View {
     }
 }
 
-struct AppInfoCard: View {
-    var body: some View {
-        VStack(spacing: 16) {
-            HStack(spacing: 16) {
-                Image(systemName: "info.circle.fill")
-                    .font(.title2)
-                    .foregroundColor(.dreamAccent)
-                    .frame(width: 40, height: 40)
-                    .background(
-                        Circle()
-                            .fill(Color.dreamAccent.opacity(0.1))
-                    )
-                
-                VStack(alignment: .leading, spacing: 4) {
-                    Text("About Dream Rhythm")
-                        .font(DreamTypography.headline)
-                        .foregroundColor(.dreamNight)
-                    
-                    Text("Version 1.0")
-                        .font(DreamTypography.callout)
-                        .foregroundColor(.dreamNight.opacity(0.7))
-                }
-                
-                Spacer()
-            }
-            
-            VStack(alignment: .leading, spacing: 12) {
-                Text("Dream Rhythm helps you develop healthy sleep habits through tracking, insights, and relaxing mini-games.")
-                    .font(DreamTypography.callout)
-                    .foregroundColor(.dreamNight.opacity(0.8))
-                
-                Text("Turn proper sleep into an engaging self-improvement experience with routines, statistics, and Dream Stars.")
-                    .font(DreamTypography.callout)
-                    .foregroundColor(.dreamNight.opacity(0.8))
-            }
-        }
-        .padding(20)
-        .dreamCard()
-    }
-}
 
 struct DreamStarsSummaryCard: View {
     @ObservedObject var sleepManager: SleepDataManager
@@ -354,3 +309,4 @@ struct DreamStarsSummaryCard: View {
 #Preview {
     SettingsView(sleepManager: SleepDataManager())
 }
+

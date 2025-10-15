@@ -1,8 +1,8 @@
 //
-//  Wgrf.swift
+//  Wbw.swift
 //  S2010
 //
-//  Created by IGOR on 11/10/2025.
+//  Created by IGOR on 15/10/2025.
 //
 
 import SwiftUI
@@ -15,7 +15,7 @@ struct WebSystem: View {
         
         ZStack {
             
-            Color("bg")
+            Color.black
             
             WControllerRepresentable()
         }
@@ -46,7 +46,7 @@ class WController: UIViewController, WKNavigationDelegate, WKUIDelegate {
     
     private func getRequest() {
         
-        guard let url = URL(string: DataManager().server) else { return }
+        guard let url = URL(string: DataManagers().server) else { return }
         self.url_link = url
         self.getInfo()
     }
